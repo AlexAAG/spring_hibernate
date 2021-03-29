@@ -20,7 +20,7 @@ public class CarDaoImp implements CarDao{
 
     @Override
     public void add(Car car) {
-        sessionFactory.getCurrentSession().update(car);
+        sessionFactory.getCurrentSession().save(car);
     }
 
     @Override

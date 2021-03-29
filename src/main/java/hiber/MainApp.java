@@ -27,14 +27,12 @@ public class MainApp {
       userService.add(new User("User3", "Lastname3", "user3@mail.ru"));
       userService.add(new User("User4", "Lastname4", "user4@mail.ru"));
 
+      Car car2 = new Car("bmw", 5);
+      carService.add(car2);
 
-      Car car2 = new Car("audi", 3);
-      if(car2 == null) {
-         carService.add(car2);
-         System.out.println("11111111car2 == null1111111");
-      }
       List<User> users = userService.listUsers();
       for (User user : users) {
+         //userService.delete(user);
          System.out.println("Id = "+user.getId());
          System.out.println("First Name = "+user.getFirstName());
          System.out.println("Last Name = "+user.getLastName());
@@ -42,13 +40,16 @@ public class MainApp {
          System.out.println();
 //         Car car2 = new Car("audi", 3);
 //         carService.add(car2);
-         if(user.getCar() == null) {
-            user.setCar(car2);
-            System.out.println("!!!user.getCar() == null!!!");
-         }
+//         if(user.getCar().getUser() == null) {
+//            user.setCar(new Car("bmw", 5));
+//            System.out.println("!!!user.getCar() == null!!!");
+//         }
+         user.setCar(car2);
+//         System.out.println("11111111111111111111111111111111"+user.getCar().getUser());
          //System.out.println("Car = "+user.getCar());
          userService.update(user);
          //carService.delete(car2);
+         //userService.delete(user);
       }
 
       //carService.delete(car2);
