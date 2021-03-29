@@ -16,7 +16,7 @@ public class Car {
     @Column(name = "series")
     private int series;
 
-    @OneToOne(mappedBy = "car")
+    @OneToOne(cascade = CascadeType.ALL, mappedBy = "car", orphanRemoval = true)
     private User user;
 
     public Car() {
@@ -58,5 +58,15 @@ public class Car {
 
     public void setUser(User user) {
         this.user = user;
+    }
+
+    @Override
+    public String toString() {
+        return "Car{" +
+                "id=" + id +
+                ", model='" + model + '\'' +
+                ", series=" + series +
+                ", user=" + user +
+                '}';
     }
 }

@@ -30,4 +30,8 @@ public class UserDaoImp implements UserDao {
       return query.getResultList();
    }
 
+   @Override
+   public void update(User user) {
+      sessionFactory.getCurrentSession().update(user);
+   }
 }
