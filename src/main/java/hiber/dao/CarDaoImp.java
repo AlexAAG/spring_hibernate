@@ -29,9 +29,4 @@ public class CarDaoImp implements CarDao{
         TypedQuery<Car> query=sessionFactory.getCurrentSession().createQuery("from Car");
         return query.getResultList();
     }
-
-    @Override
-    public void delete(Car car) {
-        sessionFactory.getCurrentSession().delete(car);
-    }
 }

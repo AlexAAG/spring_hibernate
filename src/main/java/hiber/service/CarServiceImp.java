@@ -26,9 +26,4 @@ public class CarServiceImp implements CarService{
         return carDao.listCars();
     }
 
-    @Transactional
-    @Override
-    public void delete(Car car) {
-        carDao.delete(car);
-    }
 }

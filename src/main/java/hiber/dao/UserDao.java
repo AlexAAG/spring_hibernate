@@ -7,6 +7,5 @@ import java.util.List;
 public interface UserDao {
    void add(User user);
    List<User> listUsers();
-   void update(User user);
-   void delete(User user);
+   Object userWithCar(String model, int series);
 }

@@ -20,57 +20,31 @@ public class MainApp {
             new AnnotationConfigApplicationContext(AppConfig.class);
 
       UserService userService = context.getBean(UserService.class);
-      CarService carService = context.getBean(CarService.class);
 
-      userService.add(new User("User1", "Lastname1", "user1@mail.ru"));
-      userService.add(new User("User2", "Lastname2", "user2@mail.ru"));
-      userService.add(new User("User3", "Lastname3", "user3@mail.ru"));
-      userService.add(new User("User4", "Lastname4", "user4@mail.ru"));
+      User user1 = new User("Василий", "Петров", "user1@mail.ru");
+      User user2 = new User("Максим", "Сидоров", "user2@mail.ru");
+      User user3 = new User("Станислав", "Петренко", "user3@mail.ru");
+      User user4 = new User("Геннадий", "Сидоренко", "user4@mail.ru");
 
-      Car car2 = new Car("bmw", 5);
-      carService.add(car2);
+      Car car1 = new Car("BMW",5);
+      Car car2 = new Car("AUDI",8);
+      Car car3 = new Car("Kia",11);
+      Car car4 = new Car("ВАЗ",1);
 
-      List<User> users = userService.listUsers();
-      for (User user : users) {
-         //userService.delete(user);
-         System.out.println("Id = "+user.getId());
-         System.out.println("First Name = "+user.getFirstName());
-         System.out.println("Last Name = "+user.getLastName());
-         System.out.println("Email = "+user.getEmail());
-         System.out.println();
-//         Car car2 = new Car("audi", 3);
-//         carService.add(car2);
-//         if(user.getCar().getUser() == null) {
-//            user.setCar(new Car("bmw", 5));
-//            System.out.println("!!!user.getCar() == null!!!");
-//         }
-         user.setCar(car2);
-//         System.out.println("11111111111111111111111111111111"+user.getCar().getUser());
-         //System.out.println("Car = "+user.getCar());
-         userService.update(user);
-         //carService.delete(car2);
-         //userService.delete(user);
+      userService.add(user1.setCar(car1).setUser(user1));
+      userService.add(user2.setCar(car2).setUser(user2));
+      userService.add(user3.setCar(car3).setUser(user3));
+      userService.add(user4.setCar(car4).setUser(user4));
+
+      for (User user : userService.listUsers()) {
+         System.out.println("Владелец "+user.getFirstName()+" "+
+                 user.getLastName()+" "+
+                 "Автомобиль "+user.getCar().getModel()+" "+
+                 "Серии "+user.getCar().getSeries());
       }
 
-      //carService.delete(car2);
-
-
-//      carService.add(new Car("Mazda", 7));
-//
-//      List<Car> cars = carService.listCars();
-//      for (Car car : cars) {
-//         System.out.println("Id = "+car.getId());
-//         System.out.println("Model = "+car.getModel());
-//         System.out.println("Series = "+car.getSeries());
-//         System.out.println();
-//      }
-//
-//     // User user = carService.add(new Car("BMW", 5));
-//
-//      User user666 = new User("User666", "Lastname666", "user666@mail.ru");
-//      Car carUser666 = new Car("BMW", 5);
-//
-//      user666.setCar(carUser666);
+      userService.userWithCar("ВАЗ", 1);
+      System.out.println("Владелец автомобиля ВАЗ "+userService.userWithCar("ВАЗ", 1));
 
       context.close();
    }

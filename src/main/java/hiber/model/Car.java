@@ -56,8 +56,9 @@ public class Car {
         return user;
     }
 
-    public void setUser(User user) {
+    public User setUser(User user) {        //setUser not VOID!!!
         this.user = user;
+        return user;
     }
 
     @Override

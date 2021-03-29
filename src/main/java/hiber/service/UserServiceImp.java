@@ -29,12 +29,7 @@ public class UserServiceImp implements UserService {
 
    @Transactional
    @Override
-   public void update(User user) {
-      userDao.update(user);
-   }
-
-   @Override
-   public void delete(User user) {
-      userDao.delete(user);
+   public Object userWithCar(String model, int series) {
+      return userDao.userWithCar(model, series);
    }
 }

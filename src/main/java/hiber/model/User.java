@@ -67,7 +67,18 @@ public class User {
       return car;
    }
 
-   public void setCar(Car car) {
+   public Car setCar(Car car) {        //setCar not void
       this.car = car;
+      return car;
+   }
+
+   @Override
+   public String toString() {
+      return "User{" +
+              "id=" + id +
+              ", firstName='" + firstName + '\'' +
+              ", lastName='" + lastName + '\'' +
+              ", email='" + email + '\'' +
+              '}';
    }
 }
