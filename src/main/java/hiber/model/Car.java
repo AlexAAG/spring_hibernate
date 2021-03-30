@@ -5,7 +5,6 @@ import javax.persistence.*;
 @Entity
 @Table(name = "car")
 public class Car {
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -16,11 +15,11 @@ public class Car {
     @Column(name = "series")
     private int series;
 
-    @OneToOne(cascade = CascadeType.ALL, mappedBy = "car", orphanRemoval = true)
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "user_id")
     private User user;
 
     public Car() {
-
     }
 
     public Car(String model, int series) {
@@ -56,18 +55,17 @@ public class Car {
         return user;
     }
 
-    public User setUser(User user) {        //setUser not VOID!!!
+    public User setUser(User user) {
         this.user = user;
         return user;
     }
 
     @Override
     public String toString() {
-        return "Car{" +
+        return "Car {" +
                 "id=" + id +
                 ", model='" + model + '\'' +
                 ", series=" + series +
-                ", user=" + user +
                 '}';
     }
 }
