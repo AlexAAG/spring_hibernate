@@ -24,10 +24,15 @@ public class MainApp {
       Car car3 = new Car("Kia",11);
       Car car4 = new Car("ВАЗ",1);
 
-      userService.add(user1.setCar(car1).setUser(user1));
-      userService.add(user2.setCar(car2).setUser(user2));
-      userService.add(user3.setCar(car3).setUser(user3));
-      userService.add(user4.setCar(car4).setUser(user4));
+      user1.setCar(car1);
+      user2.setCar(car2);
+      user3.setCar(car3);
+      user4.setCar(car4);
+
+      userService.add(user1);
+      userService.add(user2);
+      userService.add(user3);
+      userService.add(user4);
 
       for (User user : userService.listUsers()) {
          System.out.println("Владелец "+user.getFirstName()+" "+
@@ -39,7 +44,6 @@ public class MainApp {
       System.out.println("Владелец автомобиля ВАЗ "
               +userService.userWithCar("ВАЗ", 1).getFirstName()+" "
               +userService.userWithCar("ВАЗ", 1).getLastName()+" "
-              //+userService.userWithCar("ВАЗ", 1)
       );
 
       context.close();
