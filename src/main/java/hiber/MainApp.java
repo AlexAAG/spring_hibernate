@@ -36,8 +36,11 @@ public class MainApp {
                  "Серии "+user.getCar().getSeries());
       }
 
-      userService.userWithCar("ВАЗ", 1);
-      System.out.println("Владелец автомобиля ВАЗ "+userService.userWithCar("ВАЗ", 1));
+      System.out.println("Владелец автомобиля ВАЗ "
+              +userService.userWithCar("ВАЗ", 1).getFirstName()+" "
+              +userService.userWithCar("ВАЗ", 1).getLastName()+" "
+              //+userService.userWithCar("ВАЗ", 1)
+      );
 
       context.close();
    }
