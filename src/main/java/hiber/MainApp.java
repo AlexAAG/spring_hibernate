@@ -37,7 +37,7 @@ public class MainApp {
       }
 
       userService.userWithCar("ВАЗ", 1);
-      //System.out.println("Владелец автомобиля ВАЗ "+userService.userWithCar("ВАЗ", 1));
+      System.out.println("Владелец автомобиля ВАЗ "+userService.userWithCar("ВАЗ", 1));
 
       context.close();
    }
